@@ -4,8 +4,13 @@ const uzemanyag = document.querySelectorAll("input[name='uzemanyag']");
 const datum = byId("date");
 const uzenet = document.getElementById("message");
 const KarakterHosszusag = document.getElementById("charCount");
+
+
+const Jegyár = 2500;
+const évInput = document.getElementById("év");
+const jegyekInput = document.getElementById("jegyek");
 const végösszeg = document.getElementById("végösszeg");
-const ageInput = document.getElementById("age");
+const KedvezményText = document.getElementById("kedvezmény");
 
 
 
@@ -45,61 +50,46 @@ function datumBeallitasa() {
 }
 datumBeallitasa();
 
-
 function calculatePrice() {
+    const év = Number(évInput.value);
+    const jegyek = Number(jegyekInput.value);
 
-    const age = Number(ageInput.value);
-    const tickets = Number(ticketsInput.value);
-    if (!age || !tickets) {
-        totalPrice.textContent = "0 Ft";
-        discountText.textContent = "Nincs";
+    if (!év || !jegyek) {
+        végösszeg.textContent = "0 Ft";
+        KedvezményText.textContent = "Nincs";
         return;
     }
-  
-    const originalPrice =
-        TICKET_PRICE * tickets;
 
+    const originalPrice = Jegyár * jegyek;
 
     let discount = 0;
     let discountName = "Nincs kedvezmény";
 
-
-
-    if (age < 18) {
-
+    // 18 év
+    if (év < 18) {
         discount = 20;
         discountName = "18 év alatti kedvezmény (20%)";
-
     }
-
-    if (age >= 65) {
-        discount = 25;
-        discountName = "65 év feletti kedvezmény (25%)";
-
-    } 
-    if (tickets >= 10 && discount < 30) {
-        discount = 30;
-        discountName = "Csoportos kedvezmény (30%)";
-
+    // 65 év 
+    else if (év >= 65) {
+        discount = 15;
+        discountName = "65 év feletti kedvezmény (15%)";
     }
- 
-    const discountAmount =
-        originalPrice * (discount / 100);
+    // 10 vagy több jegy 
+    if (jegyek >= 10 && discount < 23) {
+        discount = 23;
+        discountName = "Csoportos kedvezmény (23%)";
+    }
+    const discountAmount = originalPrice * (discount / 100);
+    const finalPrice = originalPrice - discountAmount;
 
-    const finalPrice =
-        originalPrice - discountAmount;
-
-
-    totalPrice.textContent =
+    végösszeg.textContent =
         finalPrice.toLocaleString("hu-HU") + " Ft";
-    discountText.textContent =
-        discountName;
+
+    KedvezményText.textContent = discountName;
 }
 
+jegyekInput.addEventListener("input", calculatePrice);
+évInput.addEventListener("input", calculatePrice);
 
-// Karakterhosszúság
-uzenet.addEventListener("input", function () {
-  KarakterHosszusag.textContent = uzenet.value.length;
-});
-
-
+calculatePrice();
