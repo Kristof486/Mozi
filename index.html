@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mozijegy – Főoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="urlap.css">
+  <link rel="stylesheet" href="stilus.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><span>Mozijegy Foglalás</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="menu" aria-expanded="false" aria-label="Menü megnyitása">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
+        <li class="nav-item"><a class="nav-link" href="#musor">Műsor</a></li>
+        <li class="nav-item"><a class="nav-link" href="#rolunk">Rólunk</a></li>
+        <li class="nav-item"><a class="nav-link" href="foglalasok.html">Foglalások</a></li>
+        <li class="nav-item"><a class="btn btn-primary" href="urlap.html">Jegyfoglalás</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero text-center">
+    <div class="container">
+      <h1>Nagy film, jó székek, gyors foglalás.</h1>
+      <p class="lead my-4">Válassz filmet, időpontot és helyet pár kattintással, a pénztár előtti sorban állás nélkül.</p>
+      <a class="btn btn-primary btn-lg me-2" href="urlap.html">Jegyet foglalok</a>
+      <a class="btn btn-light btn-lg" href="#musor">Mi megy most?</a>
+    </div>
+  </header>
+
+  <section id="musor" class="section-pad sotet-szekcio">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Műsoron</h2>
+      <div class="row g-4" id="filmek"></div>
+    </div>
+  </section>
+
+  <section id="rolunk" class="section-pad vilagos-szekcio">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6">
+          <img class="img-fluid rounded-4" src="https://placehold.co/700x450/182235/ffffff?text=Moziterem" alt="Moziterem">
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold">Rólunk</h2>
+          <p>Hat teremmel, lézerprojektorral és kényelmes, dönthető székekkel várjuk a vendégeket. A kamaraterem a kisebb, különleges vetítéseké.</p>
+          <ul>
+            <li>Alapár: 2500 Ft / fő</li>
+            <li>18 év alatt 20%, 65 év felett 15% kedvezmény</li>
+            <li>10 vagy több jegynél 23% csoportos kedvezmény</li>
+          </ul>
+          <a class="btn btn-primary" href="urlap.html">Tovább a foglaláshoz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center small">© 2026 Mozijegy Foglalás – iskolai projekt, a foglalások nem valósak.</div>
+  </footer>
+
+  <a id="felGomb" href="#" aria-label="Az oldal tetejére">&uarr;</a>
+
+  <script>
+    const felGomb = document.getElementById("felGomb");
+    window.addEventListener("scroll", () => felGomb.classList.toggle("latszik", window.scrollY > 300));
+
+    fetch("filmek.json")
+      .then((r) => r.json())
+      .then((filmek) => {
+        document.getElementById("filmek").innerHTML = filmek.map((f) => `
+          <div class="col-sm-6 col-lg-4">
+            <div class="card film-card">
+              <img src="${f.kep}" alt="${f.cim} plakát">
+              <div class="card-body">
+                <h5 class="fw-bold">${f.cim}</h5>
+                <p class="small text-sotet mb-2">${f.mufaj}, ${f.hossz} perc, ${f.korhatar ? f.korhatar + "+" : "korhatár nélkül"}, ${f.terem} (${f.sorok * f.oszlopok} férőhely)</p>
+                <p>${f.leiras}</p>
+                <p class="small mb-3"><b>Kezdés:</b> ${f.idopontok.join(", ")}</p>
+                <a class="btn btn-primary w-100" href="urlap.html?film=${f.id}">Foglalás</a>
+              </div>
+            </div>
+          </div>`).join("");
+      })
+      .catch(() => {
+        document.getElementById("filmek").innerHTML =
+          '<div class="alert alert-danger">A műsor nem tölthető be. Nyisd meg helyi szerverrel (pl. VS Code Live Server).</div>';
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
