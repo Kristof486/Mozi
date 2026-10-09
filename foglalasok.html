@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foglalások</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+  <script defer src="foglalasok.js"></script>
+</head>
+
+<body class="form-page">
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><span>Mozijegy Foglalás</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
+        aria-expanded="false" aria-label="Menü megnyitása">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Főoldal</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="foglalasok.html">Foglalások</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="urlap.html">Jegyfoglalás</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="results-wrapper">
+    <div class="container">
+      <div class="form-header text-center">
+        <h1>Foglalások</h1>
+      </div>
+
+      <div class="form-card szeles mb-4">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <label for="kereso" class="form-label">Név vagy e-mail</label>
+            <input id="kereso" type="search" class="form-control" placeholder="Keresés...">
+          </div>
+          <div class="col-md-3">
+            <label for="filmSzuro" class="form-label">Film</label>
+            <select id="filmSzuro" class="form-select">
+              <option value="">Minden film</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="datumSzuro" class="form-label">Dátum</label>
+            <input id="datumSzuro" type="date" class="form-control">
+          </div>
+          <div class="col-md-2">
+            <button id="szuroTorles" type="button" class="btn btn-outline-secondary w-100">Szűrők törlése</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3 szeles">
+        <span id="talalat" class="fw-bold"></span>
+        <div class="btn-group" role="group" aria-label="Nézetváltó">
+          <button id="nezetTabla" type="button" class="btn btn-outline-primary active">Táblázat</button>
+          <button id="nezetKartya" type="button" class="btn btn-outline-primary">Kártyák</button>
+        </div>
+      </div>
+
+      <div id="nezet" class="szeles"></div>
+    </div>
+  </main>
+  <a id="felGomb" href="#" aria-label="Az oldal tetejére">&uarr;</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
