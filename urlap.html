@@ -71,8 +71,20 @@
             </div>
             <div class="col-12">
               <label class="form-label">Ülőhelyek</label>
-              <div id="ulesek"></div>
-              <div class="form-text">Válaszd ki a kívánt ülőhelyeket.</div>
+              <div class="seat-legend mb-3">
+                <span><i class="seat-dot szabad"></i> Szabad</span>
+                <span><i class="seat-dot kivalasztott"></i> Kiválasztott</span>
+                <span><i class="seat-dot foglalt"></i> Foglalt</span>
+              </div>
+              <div class="screen"></div>
+              <div id="ulesek" class="seat-map" aria-label="Moziterem ülésrendje"></div>
+              <div id="ulesHiba" class="alert alert-danger mt-3 d-none" role="alert"></div>
+              <div class="form-text mt-3">
+                A kiválasztott ülőhelyek száma egyezzen meg a jegyek számával.
+              </div>
+              <div class="mt-2">
+                Kiválasztott helyek: <strong id="kivalasztottHelyek">Nincs</strong>
+              </div>
             </div>
             <div class="col-md-6">
               <label for="date" class="form-label">Foglalás dátuma</label>
