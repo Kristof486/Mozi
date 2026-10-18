@@ -9,6 +9,7 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="index.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js" defer></script>
 </head>
 
 <body>
@@ -73,33 +74,6 @@
   </footer>
 
   <a id="felGomb" href="#" aria-label="Az oldal tetejére">&uarr;</a>
-
-  <script>
-    const felGomb = document.getElementById("felGomb");
-    window.addEventListener("scroll", () => felGomb.classList.toggle("latszik", window.scrollY > 300));
-
-    fetch("filmek.json")
-      .then((r) => r.json())
-      .then((filmek) => {
-        document.getElementById("filmek").innerHTML = filmek.map((f) => `
-          <div class="col-sm-6 col-lg-4">
-            <div class="card film-card">
-              <img src="${f.kep}" alt="${f.cim} plakát">
-              <div class="card-body">
-                <h5 class="fw-bold">${f.cim}</h5>
-                <p class="small text-sotet mb-2">${f.mufaj}, ${f.hossz} perc, ${f.korhatar ? f.korhatar + "+" : "korhatár nélkül"}, ${f.terem} (${f.sorok * f.oszlopok} férőhely)</p>
-                <p>${f.leiras}</p>
-                <p class="small mb-3"><b>Kezdés:</b> ${f.idopontok.join(", ")}</p>
-                <a class="btn btn-primary w-100" href="urlap.html?film=${f.id}">Foglalás</a>
-              </div>
-            </div>
-          </div>`).join("");
-      })
-      .catch(() => {
-        document.getElementById("filmek").innerHTML =
-          '<div class="alert alert-danger">A műsor nem tölthető be. Nyisd meg helyi szerverrel (pl. VS Code Live Server).</div>';
-      });
-  </script>
 </body>
 
 </html>

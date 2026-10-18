@@ -77,13 +77,93 @@
                 <span><i class="seat-dot foglalt"></i> Foglalt</span>
               </div>
               <div class="screen"></div>
-              <div id="ulesek" class="seat-map" aria-label="Moziterem ülésrendje"></div>
+              <div class="seat-map" id="ulesek" aria-label="Moziterem ülésrendje">
+                <div class="seat-row">
+                  <span class="row-label">A</span>
+                  <button type="button" class="seat szabad" data-seat="A1">A1</button>
+                  <button type="button" class="seat szabad" data-seat="A2">A2</button>
+                  <button type="button" class="seat szabad" data-seat="A3">A3</button>
+                  <button type="button" class="seat szabad" data-seat="A4">A4</button>
+                  <button type="button" class="seat szabad" data-seat="A5">A5</button>
+                  <button type="button" class="seat szabad" data-seat="A6">A6</button>
+                  <button type="button" class="seat szabad" data-seat="A7">A7</button>
+                  <button type="button" class="seat szabad" data-seat="A8">A8</button>
+                  <button type="button" class="seat szabad" data-seat="A9">A9</button>
+                  <button type="button" class="seat szabad" data-seat="A10">A10</button>
+                </div>
+                <div class="seat-row">
+                  <span class="row-label">B</span>
+                  <button type="button" class="seat szabad" data-seat="B1">B1</button>
+                  <button type="button" class="seat szabad" data-seat="B2">B2</button>
+                  <button type="button" class="seat szabad" data-seat="B3">B3</button>
+                  <button type="button" class="seat szabad" data-seat="B4">B4</button>
+                  <button type="button" class="seat szabad" data-seat="B5">B5</button>
+                  <button type="button" class="seat szabad" data-seat="B6">B6</button>
+                  <button type="button" class="seat szabad" data-seat="B7">B7</button>
+                  <button type="button" class="seat szabad" data-seat="B8">B8</button>
+                  <button type="button" class="seat szabad" data-seat="B9">B9</button>
+                  <button type="button" class="seat szabad" data-seat="B10">B10</button>
+                </div>
+                <div class="seat-row">
+                  <span class="row-label">C</span>
+                  <button type="button" class="seat szabad" data-seat="C1">C1</button>
+                  <button type="button" class="seat szabad" data-seat="C2">C2</button>
+                  <button type="button" class="seat szabad" data-seat="C3">C3</button>
+                  <button type="button" class="seat szabad" data-seat="C4">C4</button>
+                  <button type="button" class="seat szabad" data-seat="C5">C5</button>
+                  <button type="button" class="seat szabad" data-seat="C6">C6</button>
+                  <button type="button" class="seat szabad" data-seat="C7">C7</button>
+                  <button type="button" class="seat szabad" data-seat="C8">C8</button>
+                  <button type="button" class="seat szabad" data-seat="C9">C9</button>
+                  <button type="button" class="seat szabad" data-seat="C10">C10</button>
+                </div>
+                <div class="seat-row">
+                  <span class="row-label">D</span>
+                  <button type="button" class="seat szabad" data-seat="D1">D1</button>
+                  <button type="button" class="seat szabad" data-seat="D2">D2</button>
+                  <button type="button" class="seat szabad" data-seat="D3">D3</button>
+                  <button type="button" class="seat szabad" data-seat="D4">D4</button>
+                  <button type="button" class="seat szabad" data-seat="D5">D5</button>
+                  <button type="button" class="seat szabad" data-seat="D6">D6</button>
+                  <button type="button" class="seat szabad" data-seat="D7">D7</button>
+                  <button type="button" class="seat szabad" data-seat="D8">D8</button>
+                  <button type="button" class="seat szabad" data-seat="D9">D9</button>
+                  <button type="button" class="seat szabad" data-seat="D10">D10</button>
+                </div>
+                <div class="seat-row">
+                  <span class="row-label">E</span>
+                  <button type="button" class="seat szabad" data-seat="E1">E1</button>
+                  <button type="button" class="seat szabad" data-seat="E2">E2</button>
+                  <button type="button" class="seat szabad" data-seat="E3">E3</button>
+                  <button type="button" class="seat szabad" data-seat="E4">E4</button>
+                  <button type="button" class="seat szabad" data-seat="E5">E5</button>
+                  <button type="button" class="seat szabad" data-seat="E6">E6</button>
+                  <button type="button" class="seat szabad" data-seat="E7">E7</button>
+                  <button type="button" class="seat szabad" data-seat="E8">E8</button>
+                  <button type="button" class="seat szabad" data-seat="E9">E9</button>
+                  <button type="button" class="seat szabad" data-seat="E10">E10</button>
+                </div>
+                <div class="seat-row">
+                  <span class="row-label">F</span>
+                  <button type="button" class="seat szabad" data-seat="F1">F1</button>
+                  <button type="button" class="seat szabad" data-seat="F2">F2</button>
+                  <button type="button" class="seat szabad" data-seat="F3">F3</button>
+                  <button type="button" class="seat szabad" data-seat="F4">F4</button>
+                  <button type="button" class="seat szabad" data-seat="F5">F5</button>
+                  <button type="button" class="seat szabad" data-seat="F6">F6</button>
+                  <button type="button" class="seat szabad" data-seat="F7">F7</button>
+                  <button type="button" class="seat szabad" data-seat="F8">F8</button>
+                  <button type="button" class="seat szabad" data-seat="F9">F9</button>
+                  <button type="button" class="seat szabad" data-seat="F10">F10</button>
+                </div>
+              </div>
+              <div class="mt-3">
+                <strong>Kiválasztott helyek:</strong>
+                <span id="kivalasztottHelyek">Nincs</span>
+              </div>
               <div id="ulesHiba" class="alert alert-danger mt-3 d-none" role="alert"></div>
               <div class="form-text mt-3">
                 A kiválasztott ülőhelyek száma egyezzen meg a jegyek számával.
-              </div>
-              <div class="mt-2">
-                Kiválasztott helyek: <strong id="kivalasztottHelyek">Nincs</strong>
               </div>
             </div>
             <div class="col-md-6">

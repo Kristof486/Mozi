@@ -165,13 +165,13 @@ body {
     outline: 2px solid #198754;
 }
 
-.seat.selected {
+.seat.kivalasztott {
     color: #fff;
     background: #0d6efd;
     border-color: #0d6efd;
 }
 
-.seat.occupied {
+.seat.foglalt {
     color: #fff;
     background: #dc3545;
     border-color: #dc3545;
@@ -181,6 +181,52 @@ body {
 
 .seat:disabled {
     cursor: not-allowed;
+}
+
+
+.seat-map {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.seat-row {
+    display: grid;
+    grid-template-columns: 24px repeat(10, minmax(36px, 1fr));
+    gap: 6px;
+    align-items: center;
+    min-width: 430px;
+}
+
+.row-label {
+    font-weight: bold;
+    text-align: center;
+}
+
+.seat {
+    padding: 8px 2px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.seat.szabad {
+    background-color: #198754;
+    color: white;
+}
+
+.seat.kivalasztott {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.seat.foglalt {
+    background-color: #dc3545;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* Responsivity */
