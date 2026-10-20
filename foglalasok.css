@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: Montserrat, Arial, sans-serif;
+    color: #182235;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    background: #000;
+    padding: 14px 0;
+}
+
+.navbar-brand span {
+    color: #e83b3b;
+}
+
+.nav-link {
+    color: #dce3ef;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.btn-primary {
+    background: #e83b3b;
+    border-color: #e83b3b;
+}
+
+.btn-primary:hover {
+    background: #c92f2f;
+}
+
+.mozi {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background: linear-gradient(#000b, #000c), url(/Képek/Moziterem.jpg) center/cover;
+}
+
+.mozi h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.mozi .lead {
+    max-width: 750px;
+    margin: 20px auto;
+}
+
+.section-pad {
+    padding: 70px 0;
+}
+
+.sotet-szekcio {
+    background: #10151f;
+    color: white;
+}
+
+.vilagos-szekcio,
+.form-page {
+    background: #f5f5f5;
+}
+
+.film-card {
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #0003;
+}
+
+.film-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.film-card .card-body {
+    padding: 20px;
+}
+
+.vilagos-szekcio img {
+    width: 100%;
+}
+
+footer {
+    background: #080b11;
+    color: #aaa;
+    padding: 25px 0;
+}
+
+.results-wrapper {
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.form-header h1 {
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.szeles {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.form-card {
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px #0001;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+#nezet {
+    margin-top: 20px;
+}
+
+#nezet th {
+    background: #10151f;
+    color: white;
+}
+
+#nezet td,
+#nezet th {
+    padding: 12px;
+}
+
+.btn-outline-primary {
+    color: #e83b3b;
+    border-color: #e83b3b;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+    background: #e83b3b;
+    color: white;
+}
+
+#felGomb {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    background: #e83b3b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#felGomb.latszik {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .mozi {
+        min-height: 450px;
+    }
+
+    .mozi h1 {
+        font-size: 2.3rem;
+    }
+
+    .section-pad {
+        padding: 50px 0;
+    }
+
+    .film-card img {
+        height: 300px;
+    }
+
+    .results-wrapper {
+        padding: 25px 0;
+    }
+
+    .form-card {
+        padding: 15px;
+    }
+}
