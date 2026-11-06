@@ -11,7 +11,6 @@ const OSZLOPOK = [["nev", "Név"], ["film", "Film"], ["datum", "Dátum"], ["ido"
 const filmAdat = (id) => FILMEK.find((f) => f.id == id);
 const ertek = (b, k) => (k === "film" ? filmAdat(b.filmId).cim : k === "helyek" ? b.helyek.join(", ") : b[k]);
 
-// Szűrés (név/e-mail, film, dátum) és rendezés. A soft delete-tel "törölt" foglalások kimaradnak.
 function lista() {
   const q = $("kereso").value.toLowerCase();
   const film = $("filmSzuro").value;
@@ -68,7 +67,6 @@ function megjelenit() {
   $("nezetKartya").classList.toggle("active", nezet === "kartya");
 }
 
-// Rendezés és soft delete egy eseménykezelővel, mindkét nézetben
 $("nezet").addEventListener("click", (e) => {
   const t = e.target.closest("[data-torol]");
   const r = e.target.closest("[data-rend]");
